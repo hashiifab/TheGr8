@@ -1,0 +1,215 @@
+/* Reset CSS */
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --swiper-pagination-color: #ff00bc;
+  --swiper-pagination-bullet-size: 1rem;
+  --swiper-pagination-bullet-width: 1rem;
+  --swiper-pagination-bullet-height: 1rem;
+  --swiper-pagination-bullet-inactive-color: #888;
+  --swiper-pagination-bullet-inactive-opacity: 0.9;
+  --swiper-pagination-bullet-opacity: 1;
+  --swiper-pagination-bullet-vertical-gap: 0.6rem;
+  --swiper-pagination-right: 1rem;
+}
+
+body {
+  font-size: 16px;
+  line-height: 1.3;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+  background-color: #121212; /* Warna latar belakang utama gelap */
+  color: #e0e0e0; /* Warna teks terang untuk kontras */
+  transition: background-color 0.5s ease, color 0.5s ease;
+}
+
+.swiper {
+  height: 100vh;
+}
+
+.character {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 2rem;
+  height: 100vh;
+  overflow: hidden;
+  padding: 2rem;
+}
+
+.character img {
+  width: 100%;
+  margin-top: auto;
+  filter: drop-shadow(-10px 10px 10px rgba(0, 0, 0, 0.2)) grayscale(1);
+  transform: translateX(calc(-100% - 3rem));
+  transition: transform 0.5s ease 0.5s, filter 0.5s ease;
+}
+
+.character img.color {
+  filter: drop-shadow(-10px 10px 10px rgba(0, 0, 0, 0.4));
+}
+
+.content-card {
+  background-color: #1a1a1a; /* Warna latar belakang section gelap */
+  padding: 2rem;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.caption {
+  margin: auto 2rem;
+  padding: 1rem;
+}
+
+.caption h2 {
+  font-size: 4rem;
+  margin-bottom: 2rem;
+  text-decoration: #ff00bc wavy underline;
+}
+
+.caption div {
+  color: #cccccc; /* Warna teks deskripsi lebih terang untuk kontras */
+  transform: translateX(calc(100% + 8rem));
+  transition: transform 0.5s ease 0.5s;
+}
+
+.caption p + p {
+  margin-top: 1rem;
+}
+
+button {
+  padding: 1rem 2rem;
+  border: none;
+  background-color: #333; /* Warna tombol gelap */
+  color: #fff;
+  font-weight: 700;
+  cursor: pointer;
+  font-size: 1.2rem;
+  position: relative;
+  border-radius: 4px;
+  transition: background-color 0.3s ease;
+}
+
+button:hover {
+  background-color: #444; /* Warna tombol saat hover */
+}
+
+button::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  height: 0.5rem;
+  background-color: #ff00bc; /* Warna efek hover tombol */
+  width: 0;
+  transition: width 0.5s ease;
+}
+
+button:hover::after {
+  width: 100%;
+}
+
+.caption button {
+  margin-top: 2rem;
+}
+.caption button a {
+  margin-top: 2rem;
+  text-decoration: none;
+  color: white;
+}
+
+.swiper-slide-active .character img,
+.swiper-slide-active .caption div {
+  transform: translateX(0);
+}
+
+/* Pagination Swiper */
+.swiper-pagination-bullet {
+  background: var(--swiper-pagination-color);
+}
+
+.swiper-pagination-bullet-active {
+  background: var(--swiper-pagination-color);
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+  .character {
+    grid-template-columns: 1fr; /* Mengubah menjadi satu kolom untuk layar lebih kecil */
+    text-align: center;
+    padding: 1rem; /* Mengurangi padding untuk responsivitas */
+  }
+
+  .character img {
+    width: 90%; /* Mengatur gambar agar lebih kecil */
+    margin: 0 auto;
+  }
+
+  .caption {
+    margin: 2rem auto;
+    padding: 1rem; /* Padding pada caption juga disesuaikan */
+  }
+
+  .caption h2 {
+    font-size: 3rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .character img {
+    width: 80%; /* Lebih kecil untuk layar tablet */
+  }
+
+  .caption h2 {
+    font-size: 2.5rem;
+  }
+
+  button {
+    font-size: 1rem;
+    padding: 0.75rem 1.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .character {
+    padding: 1rem; /* Padding lebih kecil untuk ponsel */
+  }
+
+  .caption h2 {
+    font-size: 2rem;
+  }
+
+  button {
+    font-size: 0.875rem;
+    padding: 0.5rem 1rem;
+  }
+}
+
+.back-button {
+  margin: 2rem;
+  padding: 10px 20px;
+  background-color: #6c63ff; /* Button color */
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+  display: none; /* Start hidden */
+  z-index: 100;
+}
+
+.back-button.show {
+  display: inline-block; /* Show button when active */
+  z-index: 100;
+}
+
+.back-button:hover {
+  background-color: #5953d6; /* Button color on hover */
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+}

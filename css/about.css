@@ -1,0 +1,160 @@
+@import url("https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap");
+
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  min-height: 100vh;
+  font-size: 16px;
+  line-height: 1.3;
+  font-family: "Bebas Neue", cursive;
+  overflow: hidden;
+}
+
+.container {
+  width: 300%;
+  height: 100%;
+  display: flex;
+  flex-wrap: nowrap;
+  background-color: #0e100f;
+}
+/* #0e100f*/
+.header {
+  font-size: 8rem;
+  position: fixed;
+  z-index: 10;
+  top: 20%;
+  left: 4rem;
+  line-height: 0.9;
+  color: rgb(255, 255, 227);
+}
+.header a {
+  font-size: 1.5rem;
+  color: rgb(255, 255, 227);
+  text-decoration: none;
+}
+
+.separator {
+  background-color: rgb(184, 149, 255);
+  height: 1rem;
+  position: absolute;
+  top: 50%;
+  width: 100%;
+  transform: translateY(-50%);
+}
+
+section {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+}
+
+section.section-smartcity::before {
+  content: "";
+  width: 2rem;
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+}
+
+.content-block {
+  width: 50%;
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  z-index: -1;
+  transform: translateX(-100%);
+}
+
+.section-smartcity::before,
+.section-smartcity .content-block {
+  background-color: rgb(52, 125, 114);
+}
+
+.section-benefits::before,
+.section-benefits .content-block {
+  background-color: rgb(52, 125, 114);
+}
+
+.description {
+  position: absolute;
+  bottom: 4rem;
+  left: 4rem;
+  width: 30%;
+  font-weight: 400;
+  color: rgb(255, 255, 227);
+  font-family: monospace;
+  transform: translate(100%, 100%);
+}
+
+section .what {
+    z-index: -1 !important;
+  }
+
+section img {
+  position: relative;
+  z-index: 10;
+  height: 90vh;
+  width: auto;
+  transform: translateY(-100%);
+  opacity: 0.9;
+}
+
+
+
+.large-text {
+  font-size: 25rem;
+  width: 100%;
+  text-align: center;
+  color: rgb(255, 255, 227);
+  position: absolute;
+  top: 20%;
+  left: 0;
+  transform: translateY(100%);
+  font-weight: 700;
+}
+
+.section-title {
+  position: absolute;
+  top: 4rem;
+  right: 4rem;
+  font-size: 3rem;
+  text-align: right;
+  transform: translateY(-200%);
+  color: rgb(255 208 116);
+}
+
+.section-title span {
+  display: block;
+  font-size: 70%;
+  color: #fff;
+}
+
+.section-quote {
+  position: absolute;
+  bottom: 4rem;
+  right: 4rem;
+  font-size: 3rem;
+  width: 30%;
+  text-align: right;
+  transform: translateY(200%);
+  color: rgb(255 208 116);
+}
+
+.section-quote::before,
+.section-quote::after {
+  content: "";
+  color: #fff;
+}
+

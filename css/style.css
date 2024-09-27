@@ -1,0 +1,697 @@
+@import url("https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap");
+
+/* Basic Settings */
+body,
+html {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  width: 100%;
+  background-color: #0e100f; /* Background color */
+  color: rgb(255, 255, 227); /* Main text color */
+  font-family: Arial, sans-serif;
+  box-sizing: border-box;
+  overflow-x: hidden;
+}
+
+nav {
+  position: fixed;
+  top: 2vh; /* dari px ke vh */
+  left: 50%;
+  transform: translateX(-50%);
+  width: 37% !important;
+  border-radius: 1.5vw; /* dari px ke vw */
+  background-color: rgba(0, 0, 0, 0.7);
+  box-shadow: 0 0 0.5vw #fff; /* dari px ke vw */
+  transition: all 0.3s ease;
+  z-index: 2;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 1vh 1.9vw; /* dari px ke vh dan vw */
+  /* dari px ke vw */
+}
+
+nav ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+}
+
+nav ul li {
+  margin: 0;
+  position: relative;
+}
+
+nav ul li a {
+  display: block;
+  padding: 1vh 2vw; /* dari px ke vh dan vw */
+  text-decoration: none;
+  color: rgb(255, 255, 227);
+  white-space: nowrap;
+  transition: color 0.3s ease;
+}
+
+nav ul li a:hover {
+  color: rgb(184, 149, 255);
+  cursor: pointer;
+}
+
+nav.small {
+  width: 25% !important;
+  padding: 0.9vh 0.5vw; /* dari px ke vh dan vw */
+  border-radius: 1.1vw; /* dari px ke vw */
+}
+
+nav.small ul li a {
+  padding: 0.5vh 1vw; /* dari px ke vh dan vw */
+}
+
+nav ul li:not(:last-child)::after {
+  content: "|";
+  position: absolute;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  color: rgb(255, 255, 227);
+  padding-left: 1vw; /* dari px ke vw */
+}
+
+/* Intro Screen Styling */
+/* Intro Screen Styling */
+.intro-screen {
+  background-color: #000000; /* Intro screen background */
+  color: rgb(255, 255, 227);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100vw;
+  height: 100vh;
+  position: fixed; /* Tetap di tempat */
+  top: 0;
+  left: 0;
+  z-index: 5;
+  transition: transform 1s ease-in-out; /* Slide-up animation */
+  overflow: hidden; /* Menghindari gulir */
+}
+
+/* Intro Screen Heading */
+h1 {
+  font-size: 2rem;
+  display: flex;
+  align-items: center;
+  opacity: 0;
+  animation: fadeIn 2s ease-in-out forwards;
+}
+
+/* Dot Styling */
+#dot {
+  color: rgb(255, 255, 227);
+  margin-right: 1vw; /* dari px ke vw */
+  font-size: 3rem; /* dari px ke rem */
+}
+
+/* Slide-up Animation */
+.slide-up {
+  transform: translateY(-100vh); /* Move screen up */
+}
+
+/* Main Content Styling */
+.main-content {
+  background-color: #0e100f; /* Main content background */
+  color: rgb(255, 255, 227); /* Main text color */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  max-width: 100%;
+  height: 100vh;
+  /* Ensure main content is on top */
+}
+
+/* Dynamic Title Styling */
+.dynamic-title {
+  position: absolute; /* Make this container absolute */
+  top: 38%; /* Center container vertically (adjust as needed) */
+  left: 58%; /* Center container horizontally */
+  transform: translate(-50%, -50%); /* Center container in both axes */
+  width: 100%; /* Full width for alignment */
+  text-align: center; /* Center text inside container */
+}
+
+/* Top Section (Creating) */
+.top-text {
+  position: absolute;
+  top: -23.7vh; /* dari px ke vh */
+  left: 50%; /* Center horizontally */
+  transform: translateX(-50%); /* Center element horizontally */
+}
+
+.creating-text {
+  font-size: 10rem; /* Large text size */
+}
+
+/* Middle Section */
+.middle-text {
+  position: absolute;
+  top: -7.2vh; /* dari px ke vh */
+  left: 35vw; /* dari px ke vw */
+  transform: translateX(-50%); /* Center element horizontally */
+}
+
+.dynamic-word-container {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 1vw; /* dari px ke vw */
+  background-color: rgb(255 208 116); /* Background color for dynamic word */
+}
+
+.dynamic-word {
+  display: inline-block;
+  color: #0e100f;
+  font-weight: bold;
+  font-size: 5rem; /* Ukuran font untuk kata dinamis */
+  position: relative; /* Penting untuk animasi transformasi */
+  transition: color 1s ease-in-out; /* Transisi warna */
+}
+
+/* Tambah efek animasi untuk keluar (slide ke kiri dan fade out) */
+@keyframes slide-out-left {
+  0% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+  100% {
+    transform: translateX(-15%);
+    opacity: 0;
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* Tambah efek animasi untuk masuk (slide dari kanan dan fade in) */
+@keyframes slide-in-right {
+  0% {
+    transform: translateX(15%);
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+/* Kelas untuk slide keluar */
+.slide-out {
+  animation: slide-out-left 1s ease forwards;
+}
+
+/* Kelas untuk slide masuk */
+.slide-in {
+  animation: slide-in-right 1s ease forwards;
+}
+
+/* Bottom Section (City, for the, Future) */
+.bottom-text {
+  position: absolute;
+  bottom: -19.9vh; /* dari px ke vh */
+  left: 50%; /* Center horizontally */
+  transform: translateX(-50%); /* Center element horizontally */
+  display: flex; /* Use flexbox to align items horizontally */
+  justify-content: center; /* Center items horizontally within container */
+  gap: 2vw; /* dari px ke vw */
+}
+
+.city-text,
+.for-the-text,
+.future-text {
+  display: inline-block; /* Ensure texts align horizontally */
+}
+
+.big-c {
+  font-size: 35rem;
+  position: absolute;
+  top: -12vh; /* dari px ke vh */
+  left: -27vw; /* dari px ke vw */
+  transition: color 1s ease-in-out; /* Transisi warna untuk efek halus */
+}
+
+.city-text {
+  font-size: 10rem; /* Large text size for City */
+  color: rgb(184, 149, 255);
+}
+
+.for-the-text {
+  font-size: 4rem; /* Smaller text size for "for the" */
+  position: relative;
+  top: 2vh; /* dari px ke vh */
+}
+
+.future-text {
+  font-size: 10rem; /* Larger text size for Future */
+  color: rgb(23 241 209);
+}
+
+/* Label Tim */
+.team-label {
+  position: absolute;
+  top: 2.8vh; /* dari px ke vh */
+  left: 4vw; /* dari px ke vw */
+  display: flex;
+  align-items: center;
+  background-color: rgba(0, 0, 0, 0.7); /* Background dengan transparansi */
+  border-radius: 2vw; /* dari px ke vw */
+  padding: 1vh 2vw; /* dari px ke vh dan vw */
+  color: rgb(255, 255, 227); /* Warna teks */
+  font-size: 1rem; /* Ukuran font */
+  font-weight: bold;
+  border: 0.1vw solid #fff; /* dari px ke vw */
+  text-align: center; /* Menyelaraskan teks dan titik */
+  text-decoration: none;
+}
+
+.team-label a span{
+  text-decoration: none;
+}
+
+.team-dot {
+  margin-right: 1vw; /* dari px ke vw */
+  font-size: 3rem; /* Ukuran font untuk memperbesar titik */
+  line-height: 0.5; /* Mengatur tinggi garis agar sesuai dengan ukuran titik */
+  text-decoration: none;
+}
+
+.team-name {
+  font-size: 1rem; /* Ukuran font untuk nama tim */
+  text-decoration: none;
+}
+
+.subtitle {
+  font-size: 1.5rem; /* Ukuran font untuk paragraf subtitle */
+  text-align: center; /* Rata tengah */
+  margin-top: 65vh; /* dari px ke vh */
+  margin-bottom: 2vh; /* dari px ke vh */
+  line-height: 1.6; /* Jarak antar baris */
+  color: rgb(255, 255, 227); /* Warna teks */
+  z-index: 1; /* Pastikan subtitle tetap terlihat */
+}
+
+.smart-cities {
+  color: rgb(184, 149, 255);
+  text-decoration: underline;
+  text-decoration-color: rgb(255, 208, 116);
+  text-underline-offset: 5px;
+}
+
+.smarter-communities {
+  color: rgb(23 241 209);
+  text-decoration: underline;
+  text-decoration-color: rgb(255, 208, 116);
+  text-underline-offset: 0.3125rem;
+}
+
+/* Styling untuk paragraf lainnya */
+p {
+  font-size: 1rem; /* Ukuran font default */
+  text-align: center; /* Rata tengah */
+  margin: 0 auto; /* Jarak otomatis di kiri dan kanan */
+  max-width: 50rem; /* Lebar maksimum untuk pembatasan */
+  line-height: 1.6; /* Jarak antar baris */
+  color: rgb(255, 255, 227); /* Warna teks */
+}
+
+/* Social Section Styling */
+.social-section {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.625em 1.25em; /* Sama dengan rem */
+  border-top: 0.0625em solid white; /* Sama dengan rem */
+  border-bottom: 0.0625em solid white; /* Sama dengan rem */
+  background-color: rgba(0, 0, 0, 0.7);
+  width: 100%;
+  position: relative;
+  top: 3.125em; /* Sama dengan rem */
+}
+
+/* Left content styling */
+.left-content {
+  flex: 1;
+  display: flex;
+  justify-content: flex-start;
+}
+
+.text-design {
+  font-size: 0.9375rem; /* 15px = 15/16 = 0.9375rem */
+  color: rgb(255, 255, 227);
+  line-height: 1.5;
+}
+
+.inline-flex {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.3125rem 0.9375rem; /* 5px / 16px, 15px / 16px */
+  border-radius: 1.875rem; /* 30px / 16px */
+}
+
+/* Center content (social media icons) */
+.center-content {
+  flex: 7;
+  display: flex;
+  justify-content: center;
+}
+
+.social-icons {
+  list-style: none;
+  display: flex;
+  gap: 20px;
+  padding: 0;
+  margin: 0;
+}
+
+.social-icons li a {
+  color: rgb(255, 255, 227);
+  text-decoration: none;
+  font-size: 1.25rem; /* 20px / 16px */
+  transition: color 0.3s ease;
+}
+
+.social-icons li a:hover {
+  color: #38bdf8;
+}
+
+/* Right content (email) */
+.right-content {
+  margin-right: 15px;
+  display: flex;
+}
+
+.email {
+  font-size: 0.9375rem; /* 15px / 16px */
+  color: rgb(255, 255, 227);
+}
+
+.parallax {
+  position: fixed; /* Tetap pada posisi tetap */
+  top: 0; /* Muncul dari atas */
+  left: 0; /* Muncul dari kiri */
+  width: 100%; /* Lebar penuh */
+  height: 100%; /* Tinggi penuh */
+  z-index: 0; /* Pastikan berada di belakang konten lain */
+  overflow: hidden; /* Menghindari konten keluar dari batas */
+}
+
+.image-content img {
+  position: absolute;
+  left: 1%;
+  width: 100%; /* Lebar penuh untuk gambar */
+  height: auto; /* Mempertahankan rasio */
+  display: block; /* Menghilangkan spasi bawah */
+  top: 80vh;
+  z-index: 1;
+}
+
+.content-below {
+  position: absolute;
+  top: 200vh; /* This will place it below the image */
+  background-color: #0e100f;
+  width: 100%; /* Full width */
+  margin-bottom: 10rem;
+  z-index: 0; /* Ensure it stays above the parallax */
+  height: 100%;
+}
+
+.body::before,
+.body::after {
+  margin: 0;
+  padding: 0;
+
+  box-sizing: border-box;
+}
+
+.sub-body {
+  min-height: 100vh;
+  font-size: 16px;
+  line-height: 1.3;
+  font-family: "Bebas Neue", cursive;
+  overflow: hidden;
+}
+
+.container {
+  width: 300%;
+  height: 100%;
+  display: flex;
+  flex-wrap: nowrap;
+  background-color: #0e100f;
+}
+/* #0e100f*/
+
+.header h1 {
+  font-size: 8rem; /* Ukuran font awal */
+  position: absolute;
+
+  z-index: 2; /* Z-index yang lebih tinggi untuk tetap di atas */
+  top: 20%; /* masalajh utma1 */
+  left: 4rem;
+  line-height: 0.9;
+  color: rgb(255, 255, 227);
+}
+
+.header a {
+  font-size: 1.5rem;
+  color: rgb(255, 255, 227);
+  text-decoration: none;
+}
+
+.separator {
+  background-color: rgb(184, 149, 255);
+  height: 1rem;
+  position: absolute;
+  top: 50%;
+  width: 100%;
+  transform: translateY(-50%);
+}
+
+section {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+}
+
+section.section-smartcity::before {
+  content: "";
+  width: 2rem;
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+}
+
+.content-block {
+  width: 50%;
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  z-index: -1;
+  transform: translateX(-100%);
+}
+
+.section-smartcity::before,
+.section-smartcity .content-block {
+  background-color: rgb(52, 125, 114);
+}
+
+.section-benefits::before,
+.section-benefits .content-block {
+  background-color: rgb(52, 125, 114);
+}
+
+.description {
+  position: absolute;
+  bottom: 4rem;
+  left: 4rem;
+  width: 30%;
+  font-weight: 400;
+  color: rgb(255, 255, 227);
+  font-family: monospace;
+  transform: translate(100%, 100%);
+}
+
+section .what {
+  z-index: -1 !important;
+}
+
+section img {
+  position: relative;
+  z-index: 10;
+  height: 90vh;
+  width: auto;
+  transform: translateY(-100%);
+  opacity: 0.9;
+}
+
+.large-text {
+  font-size: 25rem;
+  width: 100%;
+  text-align: center;
+  color: rgb(255, 255, 227);
+  position: absolute;
+  top: 20%;
+  left: 0;
+  transform: translateY(100%);
+  font-weight: 700;
+}
+
+.section-title {
+  position: absolute;
+  top: 4rem;
+  right: 4rem;
+  font-size: 3rem;
+  text-align: right;
+  transform: translateY(-200%);
+  color: rgb(255 208 116);
+}
+
+.section-title span {
+  display: block;
+  font-size: 70%;
+  color: #fff;
+}
+
+.section-quote {
+  position: absolute;
+  bottom: 4rem;
+  right: 4rem;
+  font-size: 3rem;
+  width: 30%;
+  text-align: right;
+  transform: translateY(200%);
+  color: rgb(255 208 116);
+}
+
+.section-quote::before,
+.section-quote::after {
+  content: "";
+  color: #fff;
+}
+
+/* Modal container (background) */
+.modal {
+  display: none; /* Hidden by default */
+  position: fixed;
+  z-index: 9999;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.8); /* Darker overlay */
+}
+
+/* Modal content */
+.modal-content {
+  background-color: #fff;
+  margin: 15% auto;
+  padding: 30px;
+  border-radius: 15px;
+  width: 80%;
+  max-width: 450px;
+  text-align: center;
+  position: relative;
+  box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+/* Close button (X) */
+.close-button {
+  position: absolute;
+  top: 10px;
+  right: 20px;
+  color: #aaa;
+  font-size: 28px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.close-button:hover {
+  color: #000;
+}
+
+/* Text styling */
+.modal-content h2 {
+  font-size: 2rem;
+  color: #38bdf8; /* Green color for congratulations */
+}
+
+.modal-content p {
+  font-size: 1.2rem;
+  color: #333;
+  margin-top: 10px;
+  font-style: italic;
+}
+
+/* Button for next page */
+#nextPageBtn {
+  margin-top: 20px;
+  padding: 10px 20px;
+  background-color: #0e100f;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 1.1rem;
+  transition: background-color 0.3s ease;
+}
+
+#nextPageBtn:hover {
+  background-color: #38bdf8;
+}
+
+.team-link {
+  pointer-events: auto; /* Ensure this is set */
+}
+
+.team-link {
+ /* or absolute */
+  z-index: 2; /* Ensure it's on top */
+}
+
+.btn-benefits {
+  z-index: 2 !important;
+  display: inline-block; /* Membuat tombol menjadi inline-block */
+  padding: 10px 20px; /* Memberikan padding untuk tombol */
+  background-color: #0e100f; /* Warna latar belakang tombol */
+  color: white; /* Warna teks tombol */
+  text-decoration: none; /* Menghilangkan garis bawah */
+  font-size: 1.5rem; /* Ukuran font */
+  border-radius: 5px; /* Membuat sudut tombol melengkung */
+  transition: background-color 0.3s ease, transform 0.3s ease; /* Transisi untuk efek hover */
+  margin-top: 45rem; 
+  margin-left: 10rem;/* Jarak antara deskripsi dan tombol */
+}
+
+.btn-benefits:hover {
+  background-color: rgb(255, 208, 116); /* Warna saat hover */
+  color: #0e100f;
+  transform: scale(1.05); /* Efek zoom saat hover */
+}
+
+.btn-benefits:active {
+  transform: translateY(-2px); /* Animasi terbang ke atas saat diklik */
+}
+
+
+
+
